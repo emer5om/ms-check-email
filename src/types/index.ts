@@ -116,3 +116,41 @@ export interface DiscordMessage {
   flags?: number;
   components?: unknown[];
 }
+
+export interface ProductSales {
+  name: string;
+  sales: number;
+  sales_count?: number;
+}
+
+export interface RecentSale {
+  id: string;
+  value: number;
+  amount?: number;
+  email: string;
+  customer_email?: string;
+  status: string;
+  products: string;
+  product_names?: string;
+}
+
+export interface ChartDataItem {
+  date: string;
+  sales_count: number;
+  total_amount: number;
+}
+
+export interface StoreStats {
+  today?: { revenue: number; count: number; total?: number };
+  week?: { revenue: number; count: number; total?: number };
+  month?: { revenue: number; count: number; total?: number };
+  total?: { revenue: number; count: number };
+  allTime?: { total: number; count: number };
+}
+
+export interface StoreData {
+  stats: StoreStats;
+  topProducts: ProductSales[];
+  recentSales: RecentSale[];
+  chartData: ChartDataItem[];
+}

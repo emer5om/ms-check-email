@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { ProductSales, RecentSale, ChartDataItem, StoreData } from '@/types';
 
 // Configurações das lojas
 const STORES = {
@@ -44,16 +45,16 @@ async function fetchFromBackend(storeKey: StoreKey, endpoint: string) {
         month: { revenue: data.month?.total || 0, count: data.month?.count || 0 },
         total: { revenue: data.allTime?.total || 0, count: data.allTime?.count || 0 }
       },
-      topProducts: data.topProducts?.map((product: any) => ({
+      topProducts: data.topProducts?.map((product: ProductSales) => ({
         name: product.name,
-        sales: product.sales_count
+        sales: product.sales_count || product.sales
       })) || [],
-      recentSales: data.recentSales?.map((sale: any) => ({
+      recentSales: data.recentSales?.map((sale: RecentSale) => ({
         id: sale.id,
-        value: sale.amount,
-        email: sale.customer_email,
+        value: sale.amount || sale.value,
+        email: sale.customer_email || sale.email,
         status: 'completed',
-        products: sale.product_names
+        products: sale.product_names || sale.products
       })) || [],
       chartData: data.chartData || []
     };
@@ -103,15 +104,15 @@ export async function GET(request: NextRequest) {
         month: { revenue: 0, count: 0 },
         total: { revenue: 0, count: 0 }
       },
-      topProducts: [] as Array<{name: string, sales: number}>,
-      recentSales: [] as Array<any>,
-      chartData: [] as Array<any>,
+      topProducts: [] as ProductSales[],
+      recentSales: [] as RecentSale[],
+      chartData: [] as ChartDataItem[],
       stores: results.filter(result => result.data !== null)
     };
     
     // Consolidar estatísticas e dados de todas as lojas
     const productSalesMap = new Map<string, number>();
-    const allRecentSales: any[] = [];
+    const allRecentSales: RecentSale[] = [];
     const chartDataMap = new Map<string, {sales_count: number, total_amount: number}>();
     
     consolidated.stores.forEach(store => {
@@ -129,7 +130,7 @@ export async function GET(request: NextRequest) {
         
         // Consolidar produtos mais vendidos
         if (store.data.topProducts) {
-          store.data.topProducts.forEach((product: any) => {
+          store.data.topProducts.forEach((product: ProductSales) => {
             const currentSales = productSalesMap.get(product.name) || 0;
             productSalesMap.set(product.name, currentSales + product.sales);
           });
@@ -142,7 +143,7 @@ export async function GET(request: NextRequest) {
         
         // Consolidar dados do gráfico
         if (store.data.chartData) {
-          store.data.chartData.forEach((item: any) => {
+          store.data.chartData.forEach((item: ChartDataItem) => {
             const existing = chartDataMap.get(item.date);
             if (existing) {
               existing.sales_count += item.sales_count;
@@ -166,7 +167,7 @@ export async function GET(request: NextRequest) {
     
     // Ordenar vendas recentes por ID (mais recentes primeiro) e pegar as 10 mais recentes
     consolidated.recentSales = allRecentSales
-      .sort((a, b) => b.id - a.id)
+      .sort((a, b) => parseInt(b.id) - parseInt(a.id))
       .slice(0, 10);
     
     // Converter dados do gráfico para array e ordenar por data

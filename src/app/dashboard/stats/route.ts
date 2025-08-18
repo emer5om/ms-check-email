@@ -41,7 +41,7 @@ async function fetchFromBackend(storeKey: StoreKey, endpoint: string) {
 }
 
 // GET /dashboard/stats - Retorna estatísticas consolidadas das lojas
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // Buscar dados de todas as lojas
     const promises = Object.keys(STORES).map(async (key) => {
