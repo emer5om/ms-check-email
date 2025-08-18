@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { ProductSales, RecentSale, ChartDataItem, StoreData } from '@/types';
+import { ProductSales, RecentSale, ChartDataItem } from '@/types';
 
 // Configurações das lojas
 const STORES = {

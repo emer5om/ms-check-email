@@ -14,7 +14,7 @@ const STORE_BACKENDS = {
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { store: string } }
+  { params }: { params: Promise<{ store: string }> }
 ) {
   try {
     const { email } = await request.json();
@@ -78,7 +78,7 @@ export async function POST(
 // Endpoint para buscar em todas as lojas
 export async function GET(
   request: NextRequest,
-  { params }: { params: { store: string } }
+  { params }: { params: Promise<{ store: string }> }
 ) {
   const resolvedParams = await params;
   const store = resolvedParams.store;

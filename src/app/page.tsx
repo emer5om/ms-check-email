@@ -4,17 +4,6 @@ import { useState, useEffect } from 'react';
 import { Search, Store as StoreIcon, Activity, CreditCard, AlertCircle, CheckCircle, XCircle, Bot, Settings, Trash2 } from 'lucide-react';
 import { Store } from '@/types';
 
-interface Payment {
-  id: number;
-  amount: number;
-  status: string;
-  customer_email: string;
-  created_at: string;
-  store?: {
-    name: string;
-  };
-}
-
 interface PaymentSearchResult {
   success: boolean;
   data?: {
