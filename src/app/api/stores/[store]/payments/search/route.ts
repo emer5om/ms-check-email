@@ -16,10 +16,11 @@ export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ store: string }> }
 ) {
+  const resolvedParams = await params;
+  const store = resolvedParams.store;
+  
   try {
     const { email } = await request.json();
-    const resolvedParams = await params;
-    const store = resolvedParams.store;
 
     if (!email) {
       return NextResponse.json(
@@ -67,7 +68,7 @@ export async function POST(
     });
 
   } catch (error) {
-    console.error(`[${params.store}] Erro ao buscar pagamento:`, error);
+    console.error(`[${store}] Erro ao buscar pagamento:`, error);
     return NextResponse.json(
       { error: 'Erro interno do servidor' },
       { status: 500 }
