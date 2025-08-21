@@ -4,9 +4,9 @@ import { NextRequest, NextResponse } from 'next/server';
 const STORES = [
   {
     id: 1,
-    store_key: 'lojabux',
-    store_name: 'LojaBux',
-    store_domain: 'lojabux.com',
+    store_key: 'RecargaBX',
+    store_name: 'RecargaBX',
+    store_domain: 'recargabx.com',
     backend_url: process.env.LOJABUX_BACKEND_URL || 'https://recargabx.com',
     is_active: true,
     created_at: new Date().toISOString(),
