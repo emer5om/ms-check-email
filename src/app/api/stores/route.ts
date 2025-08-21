@@ -7,7 +7,7 @@ const STORES = [
     store_key: 'lojabux',
     store_name: 'LojaBux',
     store_domain: 'lojabux.com',
-    backend_url: process.env.LOJABUX_BACKEND_URL || 'https://lojabux.com',
+    backend_url: process.env.LOJABUX_BACKEND_URL || 'https://recargabx.com',
     is_active: true,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString()
