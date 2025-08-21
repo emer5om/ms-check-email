@@ -8,7 +8,7 @@ const STORES = {
     token: 'kasumispace-token-2024'
   },
   lojabux: {
-    name: 'LojaBux', 
+    name: 'RecargaBx', 
     apiUrl: process.env.LOJABUX_BACKEND_URL || 'https://recargabx.com',
     token: 'kasumispace-token-2024'
   }
