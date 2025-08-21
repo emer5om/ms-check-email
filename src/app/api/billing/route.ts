@@ -10,7 +10,7 @@ const STORES = {
   },
   lojabux: {
     name: 'LojaBux', 
-    apiUrl: 'https://lojabux.com', // Backend da loja LojaBux
+    apiUrl: 'https://recargabx.com', // Backend da loja LojaBux
     token: 'kasumispace-token-2024'
   }
 };
