@@ -10,7 +10,7 @@ const STORES = {
   },
   lojabux: {
     name: 'RecargaBX', 
-    apiUrl: process.env.LOJABUX_API_URL || 'https://recargabx.com',
+    apiUrl: process.env.LOJABUX_API_URL || 'https://rebuxbr.com',
     token: 'kasumispace-token-2024'
   }
 };
