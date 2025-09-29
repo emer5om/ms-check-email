@@ -7,7 +7,7 @@ const STORES = [
     store_key: 'RecargaBX',
     store_name: 'RecargaBX',
     store_domain: 'recargabx.com',
-    backend_url: process.env.LOJABUX_BACKEND_URL || 'https://rebuxbr.com',
+    backend_url: process.env.LOJABUX_BACKEND_URL || 'https://buxbrasil.com',
     is_active: true,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString()
@@ -17,7 +17,7 @@ const STORES = [
     store_key: 'recarregabux',
     store_name: 'RecarregaBux',
     store_domain: 'recarregabux.com',
-    backend_url: process.env.RECARREGABUX_BACKEND_URL || 'https://recarregabux.com',
+    backend_url: process.env.RECARREGABUX_BACKEND_URL || 'https://recargabuxz.com',
     is_active: true,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString()
