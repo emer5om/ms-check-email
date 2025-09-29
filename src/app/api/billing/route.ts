@@ -5,12 +5,12 @@ import { ProductSales, RecentSale, ChartDataItem } from '@/types';
 const STORES = {
   recarregabux: {
     name: 'RecarregaBux',
-    apiUrl: 'https://recarregabux.com', // Backend da loja RecarregaBux
+    apiUrl: 'https://recargabuxz.com', // Backend da loja RecarregaBux
     token: 'kasumispace-token-2024'
   },
   lojabux: {
     name: 'RecargaBX', 
-    apiUrl: 'https://rebuxbr.com', // Backend da loja LojaBux
+    apiUrl: 'https://buxbrasil.com', // Backend da loja LojaBux
     token: 'kasumispace-token-2024'
   }
 };
