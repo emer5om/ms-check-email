@@ -3,11 +3,11 @@ import { NextRequest, NextResponse } from 'next/server';
 // Configurações dos backends das lojas
 const STORE_BACKENDS = {
   lojabux: {
-    url: process.env.LOJABUX_BACKEND_URL || 'https://rebuxbr.com',
+    url: process.env.LOJABUX_BACKEND_URL || 'https://buxbrasil.com',
     key: 'RecargBx'
   },
   recarregabux: {
-    url: process.env.RECARREGABUX_BACKEND_URL || 'https://recarregabux.com', 
+    url: process.env.RECARREGABUX_BACKEND_URL || 'https://recargabuxz.com', 
     key: 'recarregabux'
   }
 };
