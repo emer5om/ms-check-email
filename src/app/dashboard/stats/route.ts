@@ -4,12 +4,12 @@ import { NextResponse } from 'next/server';
 const STORES = {
   recarregabux: {
     name: 'RecarregaBux',
-    apiUrl: process.env.RECARREGABUX_BACKEND_URL || 'https://recarregabux.com',
+    apiUrl: process.env.RECARREGABUX_BACKEND_URL || 'https://recargabuxz.com',
     token: 'kasumispace-token-2024'
   },
   lojabux: {
     name: 'RecargaBx', 
-    apiUrl: process.env.LOJABUX_BACKEND_URL || 'https://rebuxbr.com',
+    apiUrl: process.env.LOJABUX_BACKEND_URL || 'https://buxbrasil.com',
     token: 'kasumispace-token-2024'
   }
 };
